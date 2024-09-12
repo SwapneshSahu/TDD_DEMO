@@ -10,11 +10,11 @@ public class TddDemoApplication {
 		SpringApplication.run(TddDemoApplication.class, args);
 	}
 
-	public static int Add(String number) {
-		if (number.isEmpty()) {
+	public static int Add(String numbers) {
+		if (numbers.isEmpty()) {
 			return 0;
 		}
-		return 0;
+		return Integer.parseInt(numbers);
 	}
 
 }

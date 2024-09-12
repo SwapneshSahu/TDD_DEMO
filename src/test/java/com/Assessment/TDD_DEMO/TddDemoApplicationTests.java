@@ -11,7 +11,12 @@ class TddDemoApplicationTests {
 
 	@Test
 	public void testEmptyString() {
-		assertEquals(0, Add("")); 
+		assertEquals(0, Add(""));
+	}
+
+	@Test
+	public void testSingleNumber() {
+		assertEquals(1, Add("1"));
 	}
 
 }

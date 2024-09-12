@@ -28,4 +28,9 @@ class TddDemoApplicationTests {
 	public void testNewlineDelimiter() {
 		assertEquals(10, Add("1\n2,3\n4"));
 	}
+
+	@Test
+	public void testCustomDelimiter() {
+		assertEquals(6, Add("//;\n1;2\n3"));
+	}
 }

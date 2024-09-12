@@ -15,9 +15,17 @@ public class TddDemoApplication {
 			return 0;
 		}
 		// Default delimiter
-		String delimiter = ",|\n";
-		String[] numArray = numbers.split(delimiter);
+		StringBuilder delimiter = new StringBuilder("\n|");
 
+		// Check if custom delimiter is provided
+		if (numbers.startsWith("//")) {
+			delimiter.append(numbers.charAt(2)); 
+			numbers = numbers.substring(4);
+		}else {
+			delimiter.append(','); 
+		}
+
+		String[] numArray = numbers.split(delimiter.toString());
 		int sum = 0;
 		for (String num : numArray) {
 			sum += Integer.parseInt(num);

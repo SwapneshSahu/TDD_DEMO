@@ -19,4 +19,8 @@ class TddDemoApplicationTests {
 		assertEquals(1, Add("1"));
 	}
 
+	@Test
+	public void testMultipleCommaSepratedNumbers() {
+		assertEquals(6, Add("1,2,3"));
+	}
 }

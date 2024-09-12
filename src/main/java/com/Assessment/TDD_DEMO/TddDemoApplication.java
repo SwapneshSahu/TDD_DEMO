@@ -15,7 +15,7 @@ public class TddDemoApplication {
 			return 0;
 		}
 		// Default delimiter
-		String delimiter = ",";
+		String delimiter = ",|\n";
 		String[] numArray = numbers.split(delimiter);
 
 		int sum = 0;

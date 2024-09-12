@@ -23,4 +23,9 @@ class TddDemoApplicationTests {
 	public void testMultipleCommaSepratedNumbers() {
 		assertEquals(6, Add("1,2,3"));
 	}
+
+	@Test
+	public void testNewlineDelimiter() {
+		assertEquals(10, Add("1\n2,3\n4"));
+	}
 }

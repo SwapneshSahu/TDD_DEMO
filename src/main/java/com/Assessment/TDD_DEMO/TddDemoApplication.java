@@ -1,5 +1,8 @@
 package com.Assessment.TDD_DEMO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,19 +20,31 @@ public class TddDemoApplication {
 		// Default delimiter
 		StringBuilder delimiter = new StringBuilder("\n|");
 
-		// Check if custom delimiter is provided
+		// If custom delimiter is provided
 		if (numbers.startsWith("//")) {
-			delimiter.append(numbers.charAt(2)); 
+			delimiter.append(numbers.charAt(2));
 			numbers = numbers.substring(4);
-		}else {
-			delimiter.append(','); 
+		} else {
+			delimiter.append(',');
 		}
 
 		String[] numArray = numbers.split(delimiter.toString());
 		int sum = 0;
+		List<Integer> negatives = new ArrayList<>();
+
 		for (String num : numArray) {
-			sum += Integer.parseInt(num);
+			int number = Integer.parseInt(num);
+			if (number < 0) {
+				negatives.add(number);
+			} else {
+				sum += number;
+			}
 		}
+
+		if (!negatives.isEmpty()) {
+			throw new IllegalArgumentException("negatives not allowed: " + negatives);
+		}
+
 		return sum;
 	}
 

@@ -2,13 +2,18 @@ package com.Assessment.TDD_DEMO;
 
 import static com.Assessment.TDD_DEMO.TddDemoApplication.Add;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class TddDemoApplicationTests {
-
+	/**
+	 * I have not tested for negative scenarios where given string is invalid, as it
+	 * is mentioned not required to do so
+	 **/
+	
 	@Test
 	public void testEmptyString() {
 		assertEquals(0, Add(""));
@@ -32,5 +37,13 @@ class TddDemoApplicationTests {
 	@Test
 	public void testCustomDelimiter() {
 		assertEquals(6, Add("//;\n1;2\n3"));
+	}
+
+	@Test
+	public void testNegativeNumberThrowsException() {
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+			Add("1,-2,-3");
+		});
+		assertEquals("negatives not allowed: [-2, -3]", exception.getMessage());
 	}
 }

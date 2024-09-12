@@ -46,4 +46,10 @@ class TddDemoApplicationTests {
 		});
 		assertEquals("negatives not allowed: [-2, -3]", exception.getMessage());
 	}
+	
+	@Test
+	public void testIgnoreNumbersGreaterThan1000() {
+	    assertEquals(2, Add("2,1001"));  // 1001 should be ignored
+	}
 }
+

@@ -26,7 +26,7 @@ public class TddDemoApplication {
 			numbers = numbers.substring(4);
 		} else {
 			delimiter.append(',');
-		}
+		}		
 
 		String[] numArray = numbers.split(delimiter.toString());
 		int sum = 0;
@@ -36,7 +36,7 @@ public class TddDemoApplication {
 			int number = Integer.parseInt(num);
 			if (number < 0) {
 				negatives.add(number);
-			} else {
+			} else if (number <= 1000) {
 				sum += number;
 			}
 		}
